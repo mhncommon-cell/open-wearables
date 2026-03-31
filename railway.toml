@@ -1,0 +1,9 @@
+[build]
+dockerfilePath = "backend/Dockerfile"
+buildCommand = ""
+
+[deploy]
+startCommand = "cd /root_project && bash scripts/start/app.sh"
+healthcheckPath = "/api/v1/health"
+healthcheckTimeout = 60
+restartPolicyType = "on_failure"
