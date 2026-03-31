@@ -62,6 +62,7 @@ class Settings(BaseSettings):
     redis_db: int = 0
     redis_password: SecretStr | None = None
     redis_username: str | None = None  # Redis 6.0+ ACL
+    redis_ssl: bool = False  # Use rediss:// for TLS (e.g. Upstash)
 
     # ADMIN ACCOUNT SEED
     admin_email: str = "admin@admin.com"
@@ -180,7 +181,8 @@ class Settings(BaseSettings):
         elif self.redis_username:
             auth_part = f"{self.redis_username}@"
 
-        return f"redis://{auth_part}{self.redis_host}:{self.redis_port}/{self.redis_db}"
+        scheme = "rediss" if self.redis_ssl else "redis"
+        return f"{scheme}://{auth_part}{self.redis_host}:{self.redis_port}/{self.redis_db}"
 
     # Decryptor for encrypted fields
     @field_validator("*", mode="after")

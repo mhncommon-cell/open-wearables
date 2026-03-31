@@ -1,0 +1,113 @@
+services:
+  - type: web
+    name: open-wearables-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_EMAIL
+        value: admin@admin.com
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      - key: DB_HOST
+        value: db.rkqfxxysqijziagvlhjh.supabase.co
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        value: postgres
+      - key: DB_USER
+        value: postgres
+      - key: DB_PASSWORD
+        value: Jaswanth@123
+      - key: REDIS_HOST
+        value: faithful-mink-71255.upstash.io
+      - key: REDIS_PORT
+        value: 6379
+      - key: REDIS_PASSWORD
+        value: gQAAAAAAARZXAAIncDE4NDc3YmZjMjIwZDI0NjY3OGY5NDE2ZTgzMDU1ZGZmMnAxNzEyNTU
+      - key: REDIS_USERNAME
+        value: default
+      - key: REDIS_DB
+        value: 0
+      - key: REDIS_SSL
+        value: true
+      - key: SENTRY_ENABLED
+        value: False
+      - key: RESEND_API_KEY
+        value: unused
+      - key: EMAIL_FROM_ADDRESS
+        value: noreply@example.com
+      - key: EMAIL_FROM_NAME
+        value: OpenWearables
+      - key: AWS_BUCKET_NAME
+        value: unused
+      - key: AWS_ACCESS_KEY_ID
+        value: unused
+      - key: AWS_SECRET_ACCESS_KEY
+        value: unused
+      - key: AWS_REGION
+        value: us-east-1
+      - key: AWS_SNS_TOPIC_ARN
+        value: unused
+      - key: CORS_ORIGINS
+        value: '["https://medparse-app.vercel.app","https://open-wearables-api.onrender.com"]'
+      - key: SERVER_HOST
+        value: https://open-wearables-api.onrender.com
+      - key: FRONTEND_URL
+        value: https://open-wearables-api.onrender.com
+
+  - type: worker
+    name: open-wearables-worker
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    dockerCommand: bash scripts/start/worker.sh
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: SECRET_KEY
+        fromService:
+          name: open-wearables-api
+          type: web
+          envVarKey: SECRET_KEY
+      - key: DB_HOST
+        value: db.rkqfxxysqijziagvlhjh.supabase.co
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        value: postgres
+      - key: DB_USER
+        value: postgres
+      - key: DB_PASSWORD
+        value: Jaswanth@123
+      - key: REDIS_HOST
+        value: faithful-mink-71255.upstash.io
+      - key: REDIS_PORT
+        value: 6379
+      - key: REDIS_PASSWORD
+        value: gQAAAAAAARZXAAIncDE4NDc3YmZjMjIwZDI0NjY3OGY5NDE2ZTgzMDU1ZGZmMnAxNzEyNTU
+      - key: REDIS_USERNAME
+        value: default
+      - key: REDIS_DB
+        value: 0
+      - key: REDIS_SSL
+        value: true
+      - key: SENTRY_ENABLED
+        value: False
+      - key: AWS_BUCKET_NAME
+        value: unused
+      - key: AWS_ACCESS_KEY_ID
+        value: unused
+      - key: AWS_SECRET_ACCESS_KEY
+        value: unused
+      - key: AWS_REGION
+        value: us-east-1
+      - key: AWS_SNS_TOPIC_ARN
+        value: unused
