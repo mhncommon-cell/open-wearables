@@ -11,6 +11,30 @@ name = "ENVIRONMENT"
 value = "production"
 
 [[deploy.environmentVariables]]
+name = "SECRET_KEY"
+value = "b3f8c2d1e4a5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2"
+
+[[deploy.environmentVariables]]
+name = "ADMIN_EMAIL"
+value = "admin@admin.com"
+
+[[deploy.environmentVariables]]
+name = "ADMIN_PASSWORD"
+value = "AdminPass@2024"
+
+[[deploy.environmentVariables]]
+name = "CORS_ORIGINS"
+value = "[\"https://medparse-app.vercel.app\"]"
+
+[[deploy.environmentVariables]]
+name = "SERVER_HOST"
+value = "https://open-wearables-production.up.railway.app"
+
+[[deploy.environmentVariables]]
+name = "FRONTEND_URL"
+value = "https://medparse-app.vercel.app"
+
+[[deploy.environmentVariables]]
 name = "DB_HOST"
 value = "db.rkqfxxysqijziagvlhjh.supabase.co"
 
