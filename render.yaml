@@ -16,13 +16,13 @@ services:
       - key: ADMIN_PASSWORD
         generateValue: true
       - key: DB_HOST
-        value: db.rkqfxxysqijziagvlhjh.supabase.co
+        value: aws-0-ap-northeast-2.pooler.supabase.com
       - key: DB_PORT
         value: 5432
       - key: DB_NAME
         value: postgres
       - key: DB_USER
-        value: postgres
+        value: postgres.rkqfxxysqijziagvlhjh
       - key: DB_PASSWORD
         value: Jaswanth@123
       - key: REDIS_HOST
@@ -78,13 +78,13 @@ services:
           type: web
           envVarKey: SECRET_KEY
       - key: DB_HOST
-        value: db.rkqfxxysqijziagvlhjh.supabase.co
+        value: aws-0-ap-northeast-2.pooler.supabase.com
       - key: DB_PORT
         value: 5432
       - key: DB_NAME
         value: postgres
       - key: DB_USER
-        value: postgres
+        value: postgres.rkqfxxysqijziagvlhjh
       - key: DB_PASSWORD
         value: Jaswanth@123
       - key: REDIS_HOST
