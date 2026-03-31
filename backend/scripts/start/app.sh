@@ -25,10 +25,13 @@ uv run python scripts/init/seed_series_types.py
 echo 'Initializing archival settings...'
 uv run python scripts/init/seed_archival_settings.py
 
+# Use PORT env var if set (Railway injects this), otherwise default to 8000
+APP_PORT="${PORT:-8000}"
+
 # Init app
-echo "Starting the FastAPI application..."
+echo "Starting the FastAPI application on port $APP_PORT..."
 if [ "$ENVIRONMENT" = "local" ]; then
-    uv run fastapi dev app/main.py --host 0.0.0.0 --port 8000
+    uv run fastapi dev app/main.py --host 0.0.0.0 --port "$APP_PORT"
 else
-    uv run fastapi run app/main.py --host 0.0.0.0 --port 8000
+    uv run fastapi run app/main.py --host 0.0.0.0 --port "$APP_PORT"
 fi
