@@ -5,3 +5,87 @@ dockerfilePath = "Dockerfile"
 healthcheckPath = "/"
 healthcheckTimeout = 300
 restartPolicyType = "on_failure"
+
+[[deploy.environmentVariables]]
+name = "ENVIRONMENT"
+value = "production"
+
+[[deploy.environmentVariables]]
+name = "DB_HOST"
+value = "db.rkqfxxysqijziagvlhjh.supabase.co"
+
+[[deploy.environmentVariables]]
+name = "DB_PORT"
+value = "5432"
+
+[[deploy.environmentVariables]]
+name = "DB_NAME"
+value = "postgres"
+
+[[deploy.environmentVariables]]
+name = "DB_USER"
+value = "postgres"
+
+[[deploy.environmentVariables]]
+name = "DB_PASSWORD"
+value = "Jaswanth@123"
+
+[[deploy.environmentVariables]]
+name = "DB_SSL"
+value = "true"
+
+[[deploy.environmentVariables]]
+name = "REDIS_HOST"
+value = "faithful-mink-71255.upstash.io"
+
+[[deploy.environmentVariables]]
+name = "REDIS_PORT"
+value = "6379"
+
+[[deploy.environmentVariables]]
+name = "REDIS_PASSWORD"
+value = "gQAAAAAAARZXAAIncDE4NDc3YmZjMjIwZDI0NjY3OGY5NDE2ZTgzMDU1ZGZmMnAxNzEyNTU"
+
+[[deploy.environmentVariables]]
+name = "REDIS_USERNAME"
+value = "default"
+
+[[deploy.environmentVariables]]
+name = "REDIS_SSL"
+value = "true"
+
+[[deploy.environmentVariables]]
+name = "SENTRY_ENABLED"
+value = "False"
+
+[[deploy.environmentVariables]]
+name = "RESEND_API_KEY"
+value = "unused"
+
+[[deploy.environmentVariables]]
+name = "EMAIL_FROM_ADDRESS"
+value = "noreply@example.com"
+
+[[deploy.environmentVariables]]
+name = "EMAIL_FROM_NAME"
+value = "OpenWearables"
+
+[[deploy.environmentVariables]]
+name = "AWS_BUCKET_NAME"
+value = "unused"
+
+[[deploy.environmentVariables]]
+name = "AWS_ACCESS_KEY_ID"
+value = "unused"
+
+[[deploy.environmentVariables]]
+name = "AWS_SECRET_ACCESS_KEY"
+value = "unused"
+
+[[deploy.environmentVariables]]
+name = "AWS_REGION"
+value = "us-east-1"
+
+[[deploy.environmentVariables]]
+name = "AWS_SNS_TOPIC_ARN"
+value = "unused"
