@@ -1,4 +1,5 @@
 from functools import lru_cache
+from urllib.parse import quote
 from pathlib import Path
 from typing import Any
 
@@ -194,9 +195,10 @@ class Settings(BaseSettings):
 
     @property
     def db_uri(self) -> str:
+        password = quote(self.db_password.get_secret_value(), safe="")
         return (
             f"postgresql+psycopg://"
-            f"{self.db_user}:{self.db_password.get_secret_value()}"
+            f"{self.db_user}:{password}"
             f"@{self.db_host}:{self.db_port}/{self.db_name}"
         )
 

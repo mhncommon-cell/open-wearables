@@ -24,7 +24,7 @@ services:
       - key: DB_USER
         value: postgres
       - key: DB_PASSWORD
-        value: Jaswanth%40123
+        value: Jaswanth@123
       - key: REDIS_HOST
         value: faithful-mink-71255.upstash.io
       - key: REDIS_PORT
@@ -86,7 +86,7 @@ services:
       - key: DB_USER
         value: postgres
       - key: DB_PASSWORD
-        value: Jaswanth%40123
+        value: Jaswanth@123
       - key: REDIS_HOST
         value: faithful-mink-71255.upstash.io
       - key: REDIS_PORT
