@@ -40,6 +40,7 @@ class Settings(BaseSettings):
     db_name: str = "open-wearables"
     db_user: str = "open-wearables"
     db_password: SecretStr = SecretStr("open-wearables")
+    db_ssl: bool = False  # Set True for Supabase/managed DBs requiring SSL
 
     # Sentry
     SENTRY_ENABLED: bool = False
@@ -196,11 +197,14 @@ class Settings(BaseSettings):
     @property
     def db_uri(self) -> str:
         password = quote(self.db_password.get_secret_value(), safe="")
-        return (
+        url = (
             f"postgresql+psycopg://"
             f"{self.db_user}:{password}"
             f"@{self.db_host}:{self.db_port}/{self.db_name}"
         )
+        if self.db_ssl:
+            url += "?sslmode=require"
+        return url
 
     # 0. pytest ini_options
     # 1. environment variables
