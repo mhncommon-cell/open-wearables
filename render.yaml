@@ -16,15 +16,15 @@ services:
       - key: ADMIN_PASSWORD
         generateValue: true
       - key: DB_HOST
-        value: aws-0-ap-northeast-2.pooler.supabase.com
+        value: hopper.proxy.rlwy.net
       - key: DB_PORT
-        value: 5432
+        value: 34897
       - key: DB_NAME
-        value: postgres
+        value: railway
       - key: DB_USER
-        value: postgres.rkqfxxysqijziagvlhjh
+        value: postgres
       - key: DB_PASSWORD
-        value: Jaswanth@123
+        value: CpQJZYVhscepLPAdYdZbBudxoKkHUgvB
       - key: REDIS_HOST
         value: faithful-mink-71255.upstash.io
       - key: REDIS_PORT
@@ -78,15 +78,15 @@ services:
           type: web
           envVarKey: SECRET_KEY
       - key: DB_HOST
-        value: aws-0-ap-northeast-2.pooler.supabase.com
+        value: hopper.proxy.rlwy.net
       - key: DB_PORT
-        value: 5432
+        value: 34897
       - key: DB_NAME
-        value: postgres
+        value: railway
       - key: DB_USER
-        value: postgres.rkqfxxysqijziagvlhjh
+        value: postgres
       - key: DB_PASSWORD
-        value: Jaswanth@123
+        value: CpQJZYVhscepLPAdYdZbBudxoKkHUgvB
       - key: REDIS_HOST
         value: faithful-mink-71255.upstash.io
       - key: REDIS_PORT
